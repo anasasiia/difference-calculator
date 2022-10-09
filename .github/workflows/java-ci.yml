@@ -11,11 +11,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '17'
-          distribution: 'temurin'
       - uses: gradle/gradle-build-action@v1
         with:
           arguments: build
-          distributions-cache-enabled: true
-          dependencies-cache-enabled: true
-          configuration-cache-enabled: true
       - run: make build
