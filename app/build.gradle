@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'checkstyle'
 }
 
 group 'hexlet.code'
@@ -25,8 +26,22 @@ dependencies {
     implementation 'info.picocli:picocli:4.6.3'
     annotationProcessor 'info.picocli:picocli-codegen:4.6.3'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
+    implementation 'com.puppycrawl.tools:checkstyle:10.3.4'
 }
 
 test {
     useJUnitPlatform()
+}
+
+checkstyle {
+    toolVersion '10.3.4'
+    configFile file("config/checkstyle/checkstyle.xml")
+}
+
+checkstyleMain {
+    source ='src/main/java'
+}
+
+checkstyleTest {
+    source ='src/test/java'
 }

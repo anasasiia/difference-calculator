@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -18,10 +19,10 @@ public class Differ {
         Path path2 = Paths.get(filepath2).toAbsolutePath().normalize();
 
         if (!Files.exists(path1)) {
-            throw new Exception("File '" + path1 + "' does not exist");
+            throw new Exception("File '" + filepath1 + "' does not exist");
         }
         if (!Files.exists(path2)) {
-            throw new Exception("File '" + path2 + "' does not exist");
+            throw new Exception("File '" + filepath2 + "' does not exist");
         }
 
         String content1 = Files.readString(path1);
@@ -33,30 +34,36 @@ public class Differ {
                 .map(Map.Entry::getKey)
                 .sorted()
                 .collect(Collectors.toCollection(LinkedHashSet::new));
+
         var result = new StringBuilder();
         result.append("{\n");
         for (String key: keys) {
             if (!mapFile1.containsKey(key)) {
-                result.append(" + ").append(key).append(": ").append(mapFIle2.get(key)).append("\n");
+                result.append("  + ").append(key).append(": ").append(mapFIle2.get(key)).append("\n");
             }
             if (!mapFIle2.containsKey(key)) {
-                result.append(" - ").append(key).append(": ").append(mapFile1.get(key)).append("\n");
+                result.append("  - ").append(key).append(": ").append(mapFile1.get(key)).append("\n");
             }
             if (mapFile1.containsKey(key) && mapFIle2.containsKey(key)) {
                 if (mapFile1.get(key).equals(mapFIle2.get(key))) {
-                    result.append("   ").append(key).append(": ").append(mapFile1.get(key)).append("\n");
+                    result.append("    ").append(key).append(": ").append(mapFile1.get(key)).append("\n");
                 } else {
-                    result.append(" - ").append(key).append(": ").append(mapFile1.get(key)).append("\n");
-                    result.append(" + ").append(key).append(": ").append(mapFIle2.get(key)).append("\n");
+                    result.append("  - ").append(key).append(": ").append(mapFile1.get(key)).append("\n");
+                    result.append("  + ").append(key).append(": ").append(mapFIle2.get(key)).append("\n");
                 }
             }
         }
-        result.append("\n}");
+        result.append("}");
         return result.toString();
     }
 
     private static Map<String, Object> getData(String content) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(content, new TypeReference<Map<String, Object>>() {});
+        try {
+            return mapper.readValue(content, new TypeReference<>() {  });
+        } catch (JsonProcessingException e) {
+            throw new Exception("Wrong format!");
+        }
+
     }
 }

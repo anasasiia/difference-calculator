@@ -7,22 +7,34 @@ import picocli.CommandLine.Parameters;
 
 import java.util.concurrent.Callable;
 
-@Command(name = "gendiff", version = "gendiff 1.0",mixinStandardHelpOptions = true,
+@Command(name = "gendiff", version = "gendiff 1.0", mixinStandardHelpOptions = true,
         description = "Compares two configuration files and shows a difference.")
 public class App implements Callable<Integer> {
 
     @Option(names = {"-f", "--format"}, description = "output format [default: ${DEFAULT-VALUE}]")
-    String format = "stylish";
+    private String format = "stylish";
+
+    public final String getFormat() {
+        return format;
+    }
 
     @Parameters(paramLabel = "filepath1", description = "path to first file")
-    String filepath1;
+    private String filepath1;
+
+    public final String getFilepath1() {
+        return filepath1;
+    }
 
     @Parameters(paramLabel = "filepath2", description = "path to second file")
-    String filepath2;
+    private String filepath2;
+
+    public final String getFilepath2() {
+        return filepath2;
+    }
 
     @Override
-    public Integer call() throws Exception {
-        String result = Differ.generate(filepath1, filepath2);
+    public final Integer call() throws Exception {
+        String result = Differ.generate(getFilepath1(), getFilepath2());
         System.out.println(result);
         return 0;
     }

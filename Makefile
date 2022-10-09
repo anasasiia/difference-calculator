@@ -1,5 +1,7 @@
 run-dist:
 	app/build/install/app/bin/app
 
-say-hello:
-	echo "Hello, World!"
+build:
+	make -C app build
+
+.PHONY: build
