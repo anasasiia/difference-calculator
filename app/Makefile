@@ -26,4 +26,7 @@ update-deps:
 
 build-run: build run
 
+report:
+	./gradlew jacocoTestReport
+
 .PHONY: build
