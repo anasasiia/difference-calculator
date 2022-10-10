@@ -5,3 +5,7 @@
 https://asciinema.org/a/JVnUoo5U7EoVyyj6EhRTHunNb
 
 [![Java CI](https://github.com/anasasiia/java-project-71/actions/workflows/java-ci.yml/badge.svg?branch=main)](https://github.com/anasasiia/java-project-71/actions/workflows/java-ci.yml)
+
+<a href="https://codeclimate.com/github/anasasiia/java-project-71/maintainability"><img src="https://api.codeclimate.com/v1/badges/6fd34ed228ced1a00f24/maintainability" /></a>
+
+<a href="https://codeclimate.com/github/anasasiia/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/6fd34ed228ced1a00f24/test_coverage" /></a>
