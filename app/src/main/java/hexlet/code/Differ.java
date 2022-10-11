@@ -1,9 +1,5 @@
 package hexlet.code;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,10 +22,14 @@ public class Differ {
         }
 
         String content1 = Files.readString(path1);
+        String extension1 = String.valueOf(path1);
         String content2 = Files.readString(path2);
+        String extension2 = String.valueOf(path2);
 
-        Map<String, Object> mapFile1 = getData(content1);
-        Map<String, Object> mapFIle2 = getData(content2);
+
+        Map<String, Object> mapFile1 = Parser.parse(content1, extension1);
+        Map<String, Object> mapFIle2 = Parser.parse(content2, extension2);
+
         Set<String> keys = Stream.concat(mapFile1.entrySet().stream(), mapFIle2.entrySet().stream())
                 .map(Map.Entry::getKey)
                 .sorted()
@@ -55,15 +55,5 @@ public class Differ {
         }
         result.append("}");
         return result.toString();
-    }
-
-    private static Map<String, Object> getData(String content) throws Exception {
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            return mapper.readValue(content, new TypeReference<>() {  });
-        } catch (JsonProcessingException e) {
-            throw new Exception("Wrong format!");
-        }
-
     }
 }
