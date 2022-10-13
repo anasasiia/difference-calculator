@@ -1,6 +1,5 @@
-package hexlet.code;
+package hexlet.code.formatters;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -10,19 +9,19 @@ public class Stylish {
         var result = new StringBuilder();
         result.append("{\n");
         for (Map<String, Object> difference : differences) {
-            if (difference.get("Type").equals("secondFileHas")) {
+            if (difference.get("Type").equals("added")) {
                 result.append("  + ").append(difference.get("Key")).append(": ")
                         .append(difference.get("Value")).append("\n");
             }
-            if (difference.get("Type").equals("firstFileHas")) {
+            if (difference.get("Type").equals("removed")) {
                 result.append("  - ").append(difference.get("Key")).append(": ")
                         .append(difference.get("Value")).append("\n");
             }
-            if (difference.get("Type").equals("haveIdenticalKeyValue")) {
+            if (difference.get("Type").equals("unchanged")) {
                 result.append("    ").append(difference.get("Key")).append(": ")
                         .append(difference.get("Value")).append("\n");
             }
-            if (difference.get("Type").equals("haveDifferentValues")) {
+            if (difference.get("Type").equals("updated")) {
                 result.append("  - ").append(difference.get("Key")).append(": ")
                         .append(difference.get("Value1")).append("\n");
                 result.append("  + ").append(difference.get("Key")).append(": ")
@@ -31,17 +30,5 @@ public class Stylish {
         }
         result.append("}");
         return result.toString();
-    }
-
-
-    private static Object getRightValue(Object value) {
-        if (!value.getClass().isPrimitive()) {
-            if (value.getClass().isArray()) {
-                return value.toString();
-            } else if (value instanceof Collection || value instanceof Map) {
-                return value.toString();
-            }
-        }
-        return value;
     }
 }
