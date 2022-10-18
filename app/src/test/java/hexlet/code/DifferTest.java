@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class DifferTest {
-
     @Test
     public void testWithYAMLFiles() throws Exception {
         String filepath1 = "src/test/resources/file3.yaml";
@@ -61,21 +60,19 @@ public class DifferTest {
         String filepath5 = "src/test/resources/file5.json";
         String filepath6 = "src/test/resources/file6.json";
         String actual3 = Differ.generate(filepath5, filepath6, "plain");
-        String expected3 = """
-                Property 'chars2' was updated. From [complex value] to false
-                Property 'checked' was updated. From false to true
-                Property 'default' was updated. From null to [complex value]
-                Property 'id' was updated. From 45 to null
-                Property 'key1' was removed
-                Property 'key2' was added with value: 'value2'
-                Property 'numbers2' was updated. From [complex value] to [complex value]
-                Property 'numbers3' was removed
-                Property 'numbers4' was added with value: [complex value]
-                Property 'obj1' was added with value: [complex value]
-                Property 'setting1' was updated. From 'Some value' to 'Another value'
-                Property 'setting2' was updated. From 200 to 300
-                Property 'setting3' was updated. From true to 'none'
-                """;
+        String expected3 = "Property 'chars2' was updated. From [complex value] to false\n"
+                + "Property 'checked' was updated. From false to true\n"
+                + "Property 'default' was updated. From null to [complex value]\n"
+                + "Property 'id' was updated. From 45 to null\n"
+                + "Property 'key1' was removed\n"
+                + "Property 'key2' was added with value: 'value2'\n"
+                + "Property 'numbers2' was updated. From [complex value] to [complex value]\n"
+                + "Property 'numbers3' was removed\n"
+                + "Property 'numbers4' was added with value: [complex value]\n"
+                + "Property 'obj1' was added with value: [complex value]\n"
+                + "Property 'setting1' was updated. From 'Some value' to 'Another value'\n"
+                + "Property 'setting2' was updated. From 200 to 300\n"
+                + "Property 'setting3' was updated. From true to 'none'";
         Assertions.assertEquals(expected3, actual3);
     }
 
@@ -84,18 +81,19 @@ public class DifferTest {
         String filepath7 = "src/test/resources/file5.json";
         String filepath8 = "src/test/resources/file6.json";
         String actual4 = Differ.generate(filepath7, filepath8, "json");
-        String expected4 = "[{\"Type\":\"unchanged\",\"Value\":[\"a\",\"b\",\"c\"],\"Key\":\"chars1\"},{\"Type\":"
-                + "\"updated\",\"Value1\":[\"d\",\"e\",\"f\"],\"Value2\":false,\"Key\":\"chars2\"},{\"Type\":"
-                + "\"updated\",\"Value1\":false,\"Value2\":true,\"Key\":\"checked\"},{\"Type\":\"updated\",\"Value1\":"
-                + "null,\"Value2\":[\"value1\",\"value2\"],\"Key\":\"default\"},{\"Type\":\"updated\",\"Value1\":45,"
-                + "\"Value2\":null,\"Key\":\"id\"},{\"Type\":\"removed\",\"Value\":\"value1\",\"Key\":\"key1\"},{\"Type"
-                + "\":\"added\",\"Value\":\"value2\",\"Key\":\"key2\"},{\"Type\":\"unchanged\",\"Value\":[1,2,3,4],"
-                + "\"Key\":\"numbers1\"},{\"Type\":\"updated\",\"Value1\":[2,3,4,5],\"Value2\":[22,33,44,55],\"Key\":"
-                + "\"numbers2\"},{\"Type\":\"removed\",\"Value\":[3,4,5],\"Key\":\"numbers3\"},{\"Type\":\"added\","
-                + "\"Value\":[4,5,6],\"Key\":\"numbers4\"},{\"Type\":\"added\",\"Value\":{\"nestedKey\":\"value\","
-                + "\"isNested\":true},\"Key\":\"obj1\"},{\"Type\":\"updated\",\"Value1\":\"Some value\",\"Value2\":"
-                + "\"Another value\",\"Key\":\"setting1\"},{\"Type\":\"updated\",\"Value1\":200,\"Value2\":300,\"Key\":"
-                + "\"setting2\"},{\"Type\":\"updated\",\"Value1\":true,\"Value2\":\"none\",\"Key\":\"setting3\"}]";
+        String expected4 = "[{\"type\":\"unchanged\",\"value\":[\"a\",\"b\",\"c\"],\"key\":\"chars1\"},"
+                + "{\"value2\":false,\"value1\":[\"d\",\"e\",\"f\"],\"type\":\"updated\",\"key\":\"chars2\"},"
+                + "{\"value2\":true,\"value1\":false,\"type\":\"updated\",\"key\":\"checked\"},{\"value2\":[\"value1\","
+                + "\"value2\"],\"value1\":null,\"type\":\"updated\",\"key\":\"default\"},{\"value2\":null,\"value1"
+                + "\":45,\"type\":\"updated\",\"key\":\"id\"},{\"type\":\"removed\",\"value\":\"value1\",\"key\":"
+                + "\"key1\"},{\"type\":\"added\",\"value\":\"value2\",\"key\":\"key2\"},{\"type\":\"unchanged\","
+                + "\"value\":[1,2,3,4],\"key\":\"numbers1\"},{\"value2\":[22,33,44,55],\"value1\":[2,3,4,5],\"type\":"
+                + "\"updated\",\"key\":\"numbers2\"},{\"type\":\"removed\",\"value\":[3,4,5],\"key\":\"numbers3\"},"
+                + "{\"type\":\"added\",\"value\":[4,5,6],\"key\":\"numbers4\"},{\"type\":\"added\",\"value\":"
+                + "{\"nestedKey\":\"value\",\"isNested\":true},\"key\":\"obj1\"},{\"value2\":\"Another value\","
+                + "\"value1\":\"Some value\",\"type\":\"updated\",\"key\":\"setting1\"},{\"value2\":300,\"value1\":200,"
+                + "\"type\":\"updated\",\"key\":\"setting2\"},{\"value2\":\"none\",\"value1\":true,"
+                + "\"type\":\"updated\",\"key\":\"setting3\"}]";
         Assertions.assertEquals(expected4, actual4);
     }
 }

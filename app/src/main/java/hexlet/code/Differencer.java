@@ -19,11 +19,9 @@ public class Differencer {
         for (String key : keys) {
             if (!mapFile1.containsKey(key)) {
                 differences.add(getMapWithOneValue("added", key, mapFile2.get(key)));
-            }
-            if (!mapFile2.containsKey(key)) {
+            } else if (!mapFile2.containsKey(key)) {
                 differences.add(getMapWithOneValue("removed", key, mapFile1.get(key)));
-            }
-            if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
+            } else {
                 if (mapFile1.get(key) == null && mapFile2.get(key) == null) {
                     differences.add(getMapWithOneValue("unchanged", key, null));
                 } else if (mapFile1.get(key) == null || mapFile2.get(key) == null) {
@@ -42,18 +40,18 @@ public class Differencer {
 
     private static Map<String, Object> getMapWithOneValue(String type, String key, Object value) {
         Map<String, Object> map = new HashMap<>();
-        map.put("Type", type);
-        map.put("Key", key);
-        map.put("Value", value);
+        map.put("type", type);
+        map.put("key", key);
+        map.put("value", value);
         return map;
     }
 
     private static Map<String, Object> getMapWithTwoValues(String key, Object value1, Object value2) {
         Map<String, Object> map = new HashMap<>();
-        map.put("Type", "updated");
-        map.put("Key", key);
-        map.put("Value1", value1);
-        map.put("Value2", value2);
+        map.put("type", "updated");
+        map.put("key", key);
+        map.put("value1", value1);
+        map.put("value2", value2);
         return map;
     }
 }
