@@ -10,7 +10,6 @@ import java.util.concurrent.Callable;
 @Command(name = "gendiff", version = "gendiff 1.0", mixinStandardHelpOptions = true,
         description = "Compares two configuration files and shows a difference.")
 public class App implements Callable<Integer> {
-
     @Option(names = {"-f", "--format"}, defaultValue = "stylish", description = "output format")
     private String format;
 
@@ -43,6 +42,4 @@ public class App implements Callable<Integer> {
         int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
-
-
 }

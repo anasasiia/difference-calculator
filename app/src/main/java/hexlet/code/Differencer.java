@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class DIfferencer {
+public class Differencer {
     public static List<Map<String, Object>> getDifferences(Map<String, Object> mapFile1,
                                                             Map<String, Object> mapFile2) {
         Set<String> keys = new TreeSet<>();
@@ -25,7 +25,7 @@ public class DIfferencer {
             }
             if (mapFile1.containsKey(key) && mapFile2.containsKey(key)) {
                 if (mapFile1.get(key) == null && mapFile2.get(key) == null) {
-                    differences.add(getMapWithOneValue("unchanged", key, mapFile1.get(key)));
+                    differences.add(getMapWithOneValue("unchanged", key, null));
                 } else if (mapFile1.get(key) == null || mapFile2.get(key) == null) {
                     differences.add(getMapWithTwoValues(key, mapFile1.get(key), mapFile2.get(key)));
                 } else {
