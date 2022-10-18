@@ -7,9 +7,9 @@
 
 <a href="https://codeclimate.com/github/anasasiia/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/6fd34ed228ced1a00f24/test_coverage" /></a>
 
-<a href="https://asciinema.org/a/rMYFISf6s6q5ojBcsgn2MAe5h" target="_blank"><img src="https://asciinema.org/a/rMYFISf6s6q5ojBcsgn2MAe5h.svg" /></a>
+<a href="https://asciinema.org/a/2YpMGB8OoGpNduYI7uyYEAeEZ" target="_blank"><img src="https://asciinema.org/a/2YpMGB8OoGpNduYI7uyYEAeEZ.svg" /></a>
 
-<a href="https://asciinema.org/a/JVnUoo5U7EoVyyj6EhRTHunNb" target="_blank"><img src="https://asciinema.org/a/JVnUoo5U7EoVyyj6EhRTHunNb.svg" /></a>
+<a href="https://asciinema.org/a/BOvjKgIPndBeqKsAzgU7wQFzb" target="_blank"><img src="https://asciinema.org/a/BOvjKgIPndBeqKsAzgU7wQFzb.svg" /></a>
 
 <a href="https://asciinema.org/a/4RaB8CmMeihwC9ZFHnP611IUI" target="_blank"><img src="https://asciinema.org/a/4RaB8CmMeihwC9ZFHnP611IUI.svg" /></a>
 
