@@ -9,17 +9,17 @@ public class Stylish {
         var result = new StringBuilder();
         result.append("{\n");
         for (Map<String, Object> difference : differences) {
+
+            String keyAndValue = difference.get("key") + ": " + difference.get("value");
+
             if (difference.get("type").equals("added")) {
-                result.append("  + ").append(difference.get("key")).append(": ").append(difference.get("value"))
-                        .append("\n");
+                result.append("  + ").append(keyAndValue).append("\n");
             }
             if (difference.get("type").equals("removed")) {
-                result.append("  - ").append(difference.get("key")).append(": ").append(difference.get("value"))
-                        .append("\n");
+                result.append("  - ").append(keyAndValue).append("\n");
             }
             if (difference.get("type").equals("unchanged")) {
-                result.append("    ").append(difference.get("key")).append(": ").append(difference.get("value"))
-                        .append("\n");
+                result.append("    ").append(keyAndValue).append("\n");
             }
             if (difference.get("type").equals("updated")) {
                 result.append("  - ").append(difference.get("key")).append(": ").append(difference.get("value1"))

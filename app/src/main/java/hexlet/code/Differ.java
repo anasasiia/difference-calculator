@@ -20,12 +20,10 @@ public class Differ {
         }
 
         String content1 = Files.readString(path1);
-        String extension1 = String.valueOf(path1);
         String content2 = Files.readString(path2);
-        String extension2 = String.valueOf(path2);
 
-        Map<String, Object> mapFile1 = Parser.parse(content1, extension1);
-        Map<String, Object> mapFIle2 = Parser.parse(content2, extension2);
+        Map<String, Object> mapFile1 = Parser.parse(content1, filepath1);
+        Map<String, Object> mapFIle2 = Parser.parse(content2, filepath2);
         List<Map<String, Object>> differences = Differencer.getDifferences(mapFile1, mapFIle2);
         return Formatter.chooseFormatter(differences, format);
     }

@@ -9,13 +9,22 @@ import java.util.Map;
 
 public class Parser {
 
-    public static Map<String, Object> parse(String content, String extension) throws Exception {
-        if (extension.endsWith("json")) {
-            return parseJson(content);
-        } else if (extension.endsWith("yaml") || extension.endsWith("yml")) {
-            return parseYaml(content);
-        } else {
-            throw new Exception(extension + " is not supported extension");
+    public static Map<String, Object> parse(String content, String filepath) throws Exception {
+        String extension = "";
+
+        int i = filepath.lastIndexOf(".");
+        if (i > 0) {
+            extension = filepath.substring(i + 1);
+        }
+
+        switch (extension) {
+            case "json" -> {
+                return parseJson(content);
+            }
+            case "yaml", "yml" -> {
+                return parseYaml(content);
+            }
+            default -> throw new Exception(extension + " is not supported extension");
         }
     }
 

@@ -11,11 +11,16 @@ import java.util.Map;
 public class Formatter {
     public static String chooseFormatter(List<Map<String, Object>> differences, String format)
                                                                 throws JsonProcessingException {
-        if (format.endsWith("plain")) {
-            return Plain.formatPlain(differences);
-        } else if (format.endsWith("json")) {
-            return Json.formatJson(differences);
+        switch (format) {
+            case "plain" -> {
+                return Plain.formatPlain(differences);
+            }
+            case "json" -> {
+                return Json.formatJson(differences);
+            }
+            default -> {
+                return Stylish.formatStylish(differences);
+            }
         }
-        return Stylish.formatStylish(differences);
     }
 }
