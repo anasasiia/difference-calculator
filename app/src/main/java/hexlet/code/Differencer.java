@@ -24,14 +24,11 @@ public class Differencer {
             } else {
                 if (mapFile1.get(key) == null && mapFile2.get(key) == null) {
                     differences.add(getMapWithOneValue("unchanged", key, null));
-                } else if (mapFile1.get(key) == null || mapFile2.get(key) == null) {
-                    differences.add(getMapWithTwoValues(key, mapFile1.get(key), mapFile2.get(key)));
+                } else if (mapFile1.get(key) != null && mapFile2.get(key) != null
+                        && mapFile1.get(key).equals(mapFile2.get(key))) {
+                    differences.add(getMapWithOneValue("unchanged", key, mapFile1.get(key)));
                 } else {
-                    if (mapFile1.get(key).equals(mapFile2.get(key))) {
-                        differences.add(getMapWithOneValue("unchanged", key, mapFile1.get(key)));
-                    } else {
-                        differences.add(getMapWithTwoValues(key, mapFile1.get(key), mapFile2.get(key)));
-                    }
+                    differences.add(getMapWithTwoValues(key, mapFile1.get(key), mapFile2.get(key)));
                 }
             }
         }

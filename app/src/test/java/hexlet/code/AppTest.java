@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.stream.Collectors;
 
-public class DifferTest {
+public class AppTest {
 
     public static String readAllLinesWithStream(BufferedReader reader) {
         return reader.lines()
