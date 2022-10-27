@@ -30,7 +30,7 @@ public class Differ {
         Map<String, Object> mapFile1 = Parser.parse(content1, formatType1);
         Map<String, Object> mapFIle2 = Parser.parse(content2, formatType2);
         List<Map<String, Object>> differences = Differencer.getDifferences(mapFile1, mapFIle2);
-        return Formatter.chooseFormatter(differences, format);
+        return Formatter.formatData(differences, format);
     }
 
     public static String generate(String filepath1, String filepath2) throws Exception {

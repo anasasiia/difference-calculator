@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Formatter {
-    public static String chooseFormatter(List<Map<String, Object>> differences, String format)
+    public static String formatData(List<Map<String, Object>> differences, String format)
                                                                 throws JsonProcessingException {
         switch (format) {
             case "plain" -> {
