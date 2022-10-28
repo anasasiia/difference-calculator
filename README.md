@@ -7,6 +7,8 @@
 
 <a href="https://codeclimate.com/github/anasasiia/java-project-71/test_coverage"><img src="https://api.codeclimate.com/v1/badges/6fd34ed228ced1a00f24/test_coverage" /></a>
 
+Вычислитель отличий - это программа, которая сравнивает 2 структуры данных (формат .json или .yaml) и выводит в консоль отличия в 3 форматах на выбор: stylish, plain или json.
+
 <a href="https://asciinema.org/a/2YpMGB8OoGpNduYI7uyYEAeEZ" target="_blank"><img src="https://asciinema.org/a/2YpMGB8OoGpNduYI7uyYEAeEZ.svg" /></a>
 
 <a href="https://asciinema.org/a/BOvjKgIPndBeqKsAzgU7wQFzb" target="_blank"><img src="https://asciinema.org/a/BOvjKgIPndBeqKsAzgU7wQFzb.svg" /></a>
