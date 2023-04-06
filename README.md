@@ -11,11 +11,26 @@
 
 <a href="https://asciinema.org/a/2YpMGB8OoGpNduYI7uyYEAeEZ" target="_blank"><img src="https://asciinema.org/a/2YpMGB8OoGpNduYI7uyYEAeEZ.svg" /></a>
 
-<a href="https://asciinema.org/a/BOvjKgIPndBeqKsAzgU7wQFzb" target="_blank"><img src="https://asciinema.org/a/BOvjKgIPndBeqKsAzgU7wQFzb.svg" /></a>
+### Setup
 
-<a href="https://asciinema.org/a/4RaB8CmMeihwC9ZFHnP611IUI" target="_blank"><img src="https://asciinema.org/a/4RaB8CmMeihwC9ZFHnP611IUI.svg" /></a>
+```
+make build
+```
 
-<a href="https://asciinema.org/a/BcE06ElFVItCneg3uPxq1f8GK" target="_blank"><img src="https://asciinema.org/a/BcE06ElFVItCneg3uPxq1f8GK.svg" /></a>
+### Run
 
-<a href="https://asciinema.org/a/x8EOsEzMSWZaE1XADBsxfyzkj" target="_blank"><img src="https://asciinema.org/a/x8EOsEzMSWZaE1XADBsxfyzkj.svg" /></a>
+```
+make run
+```
 
+### Run tests
+
+```
+make test
+```
+
+### Run checkstyle
+
+```
+make lint
+```
